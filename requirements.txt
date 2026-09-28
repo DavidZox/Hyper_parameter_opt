@@ -1,0 +1,6 @@
+# Python 3.10 以上（測試環境 Python 3.12.14）
+pymoo==0.6.2        # 必須是 0.6.2：0.6.1.x 的亂數機制不同，seed=42 會得到和簡報不同的結果
+numpy>=2.0          # 測試版本 2.5.3
+matplotlib>=3.8     # 測試版本 3.11.2
+PyYAML>=6.0         # 讀 configs/experiments.yaml
+Pillow>=10.0        # verify_slides.py 讀取簡報中的原圖

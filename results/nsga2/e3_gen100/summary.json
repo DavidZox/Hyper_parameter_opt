@@ -1,0 +1,54 @@
+{
+  "algo": "nsga2",
+  "name": "e3_gen100",
+  "desc": "代數加倍到 100",
+  "params": {
+    "pop_size": 60,
+    "n_gen": 100,
+    "crossover_prob": 0.9,
+    "eta_c": 15.0,
+    "mutation_prob": 0.2,
+    "mutation_prob_var": null,
+    "eta_m": 20.0,
+    "n_partitions": 12,
+    "seed": 42
+  },
+  "runtime_sec": 1.207,
+  "n_eval": 6000,
+  "knee": {
+    "idx": 49,
+    "v_max": 2.9405334157474305,
+    "a_max": 1.8263964282737546,
+    "w_safety": 9.9966952595986,
+    "k_steer": 0.5008296634839141,
+    "q_r_ratio": 999.8424500996714,
+    "exec_time": 42.58187241925294,
+    "collision_risk": 2.8103897786232532
+  },
+  "knee_fixed_norm": {
+    "idx": 49,
+    "v_max": 2.9405334157474305,
+    "a_max": 1.8263964282737546,
+    "w_safety": 9.9966952595986,
+    "k_steer": 0.5008296634839141,
+    "q_r_ratio": 999.8424500996714,
+    "exec_time": 42.58187241925294,
+    "collision_risk": 2.8103897786232532
+  },
+  "metrics": {
+    "n_solutions": 60,
+    "hv": 1.2019231681172358,
+    "hv_ratio": 0.9986894411275583,
+    "igd": 0.010705993992628242,
+    "time_min": 38.465990603092635,
+    "time_max": 301.8037075726194,
+    "risk_min": 0.6886031750721695,
+    "risk_max": 49.68421486013198
+  },
+  "versions": {
+    "python": "3.12.14",
+    "pymoo": "0.6.2",
+    "numpy": "2.5.3",
+    "matplotlib": "3.11.2"
+  }
+}

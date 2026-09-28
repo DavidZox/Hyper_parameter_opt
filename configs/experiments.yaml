@@ -1,0 +1,40 @@
+# 簡報中的 7 組 GA 參數設定，NSGA-II（p.3–9）與 NSGA-III（p.13–19）各跑一次，共 14 組。
+# 只列出和預設值不同的參數；預設值見 amr_moo/algorithms.py 的 DEFAULTS（即簡報的「GA 參數可調區域」）：
+#   pop_size=60, n_gen=50, crossover_prob=0.9, eta_c=15.0, mutation_prob=0.2, eta_m=20.0,
+#   n_partitions=12（NSGA-III 參考點分段數）, seed=42
+# 注意：YAML 的指數寫法要有小數點（1.0e-5），寫成 1e-5 會被讀成字串，所以這裡用 0.00001。
+
+algorithms: [nsga2, nsga3]
+
+experiments:
+  e1_baseline:                 # 簡報 (1)：預設參數
+    desc: 基準（預設參數）
+  e2_pop1000:                  # 簡報 (2)
+    desc: 族群放大到 1000
+    pop_size: 1000
+  e3_gen100:                   # 簡報 (3)
+    desc: 代數加倍到 100
+    n_gen: 100
+  e4_etac1000:                 # 簡報 (4)
+    desc: η_c=1000（交叉非常保守）
+    eta_c: 1000.0
+  e5_etac1e-5:                 # 簡報 (5)
+    desc: η_c=1e-5（交叉非常激進）
+    eta_c: 0.00001
+  e6_etam1000:                 # 簡報 (6)
+    desc: η_m=1000（突變擾動極小）
+    eta_m: 1000.0
+  e7_etam1e-5:                 # 簡報 (7)
+    desc: η_m=1e-5（突變擾動劇烈）
+    eta_m: 0.00001
+
+# ---- 建議實驗（不是簡報內容，見 README §7）：只在 scripts/seed_study.py 使用，也可用 --exp 單獨執行 ----
+suggested:
+  s1_pm_per_var:               # 依簡報註解「建議設為 1/n_var = 0.2」的原意：每個個體都突變、每個維度機率 0.2
+    desc: 突變改為每個維度 0.2
+    mutation_prob: 1.0
+    mutation_prob_var: 0.2
+  s2_partitions30:             # 簡報 p.20 的建議：n_partitions 從 12 提高到 24~30
+    desc: NSGA-III 參考點 13 → 31 條
+    algorithms: [nsga3]
+    n_partitions: 30
